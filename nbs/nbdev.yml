@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "python101"
+  site-url: "https://dolremi.github.io/python101"
+  description: "A tutorial for Python learner"
+  repo-branch: main
+  repo-url: "https://github.com/dolremi/python101"
