@@ -2,3 +2,13 @@ website:
   sidebar:
     contents:
       - index.ipynb
+      - Basic_datatypes.ipynb
+      - Controls.ipynb
+      - Dictionary.ipynb
+      - Exception_handler.ipynb
+      - Functions.ipynb
+      - Python-01.ipynb
+      - Python-Variables.ipynb
+      - Sequence.ipynb
+      - Set.ipynb
+      - jupyter-notebook-101.ipynb
