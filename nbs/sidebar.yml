@@ -2,7 +2,7 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - Python-01.ipynb
+      - Python-Programming.ipynb
       - Python-Variables.ipynb
       - Basic_datatypes.ipynb
       - Controls.ipynb
