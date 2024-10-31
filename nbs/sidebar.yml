@@ -3,8 +3,8 @@ website:
     contents:
       - index.ipynb
       - Python-Programming.ipynb
+      - Python_datatypes.ipynb
       - Python-Variables.ipynb
-      - Basic_datatypes.ipynb
       - Controls.ipynb
       - Functions.ipynb
       - Sequence.ipynb
