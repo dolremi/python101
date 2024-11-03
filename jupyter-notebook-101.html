@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Writing – python101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Writing – python101">
+<meta property="og:description" content="A tutorial for Python learner">
+<meta property="og:site_name" content="python101">
+<meta name="twitter:title" content="Writing – python101">
+<meta name="twitter:description" content="A tutorial for Python learner">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">python101</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./jupyter-notebook-101.html">Writing</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">欢迎进入Python世界</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">写在最前面</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python-datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">基本数据类型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">变量存储机制</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">控制语句</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">函数</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">序列型数据结构</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set集合</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">字典Dictionary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exception_handler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异常处理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jupyter-notebook-101.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Writing</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#modes" id="toc-modes" class="nav-link active" data-scroll-target="#modes">Modes</a></li>
+  <li><a href="#other-important-considerations" id="toc-other-important-considerations" class="nav-link" data-scroll-target="#other-important-considerations">Other Important Considerations</a></li>
+  <li><a href="#markdown-formatting" id="toc-markdown-formatting" class="nav-link" data-scroll-target="#markdown-formatting">Markdown Formatting</a>
+  <ul class="collapse">
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#italics-bold-strikethrough-inline-blockquotes-and-links" id="toc-italics-bold-strikethrough-inline-blockquotes-and-links" class="nav-link" data-scroll-target="#italics-bold-strikethrough-inline-blockquotes-and-links">Italics, Bold, Strikethrough, Inline, Blockquotes and Links</a></li>
+  <li><a href="#headings" id="toc-headings" class="nav-link" data-scroll-target="#headings">Headings</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
+  </ul></li>
+  <li><a href="#code-capabilities" id="toc-code-capabilities" class="nav-link" data-scroll-target="#code-capabilities">Code Capabilities</a></li>
+  <li><a href="#running-jupyter-locally" id="toc-running-jupyter-locally" class="nav-link" data-scroll-target="#running-jupyter-locally">Running Jupyter Locally</a></li>
+  <li><a href="#shortcuts-and-tricks" id="toc-shortcuts-and-tricks" class="nav-link" data-scroll-target="#shortcuts-and-tricks">Shortcuts and Tricks</a>
+  <ul class="collapse">
+  <li><a href="#command-mode-shortcuts" id="toc-command-mode-shortcuts" class="nav-link" data-scroll-target="#command-mode-shortcuts">Command Mode Shortcuts</a></li>
+  <li><a href="#cell-tricks" id="toc-cell-tricks" class="nav-link" data-scroll-target="#cell-tricks">Cell Tricks</a></li>
+  <li><a href="#line-magics" id="toc-line-magics" class="nav-link" data-scroll-target="#line-magics">Line Magics</a></li>
+  </ul></li>
+  <li><a href="#thanks-for-reading" id="toc-thanks-for-reading" class="nav-link" data-scroll-target="#thanks-for-reading">Thanks for reading!</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dolremi/python101/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="jupyter-notebook-101.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Writing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p># Jupyter Notebook使用方法</p>
+<ul>
+<li>order: 14</li>
+</ul>
+<div id="dc5e0ffe-39de-4e7a-8c4b-829482995b14" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="8af2325c-c1ed-4beb-901b-09f71fe501b6" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">-</span><span class="dv">53456</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s build up from the basics: what is a Jupyter Notebook? A notebook is a document made of cells. You can write in some of them (markdown cells) or you can perform calculations in Python (code cells) and run them like this:</p>
+<div id="45de1e93" class="cell" data-papermill="{&quot;duration&quot;:0.061017,&quot;end_time&quot;:&quot;2022-04-24T20:37:13.134940&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:13.073923&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cool, huh? This combination of prose and code makes Jupyter Notebook ideal for experimentation: we can see the rationale for each experiment, the code, and the results in one comprehensive document.</p>
+<p>Try it yourself now. Click “Copy &amp; Edit” in the top right to get your own editable version of this notebook, then click the cell above and hit <code>Shift</code>-<code>Enter</code>.</p>
+<p>Other renowned institutions in academia and industry use Jupyter Notebook, including Google, Microsoft, IBM, Bloomberg, Berkeley and NASA among others. Even Nobel-winning economists <a href="https://paulromer.net/jupyter-mathematica-and-the-future-of-the-research-paper/">use Jupyter Notebooks</a> for their experiments and some suggest that Jupyter Notebooks will be the <a href="https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/">new format for research papers</a>.</p>
+<p>A type of cell in which you can write text is called a <em>Markdown cell</em>. <a href="https://en.wikipedia.org/wiki/Markdown"><em>Markdown</em></a> is a very popular markup language. To specify that a cell is Markdown you need to click in the drop-down menu in the toolbar and select Markdown.</p>
+<p>Click the ‘+ Markdown’ button below. Now you can type your first Markdown cell. Write ‘My first markdown cell’ and press run.</p>
+<p>You should see something like this:</p>
+<p>My first markdown cell</p>
+<p>Now try making your first <em>Code</em> cell: follow the same steps as before but click “+ Code”. Type something like 3/2. You should see ‘1.5’ as output.</p>
+<div id="c1f11819" class="cell" data-papermill="{&quot;duration&quot;:0.047182,&quot;end_time&quot;:&quot;2022-04-24T20:37:13.596991&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:13.549809&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">/</span><span class="dv">32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="modes" class="level2">
+<h2 class="anchored" data-anchor-id="modes">Modes</h2>
+<p>If you made a mistake in your <em>Markdown</em> cell and you have already run it, you will notice that you cannot edit it just by clicking on it. This is because you are in <strong>Command Mode</strong>. Jupyter Notebooks have two distinct modes:</p>
+<ul>
+<li><p>Edit Mode:: Allows you to edit a cell’s content.</p></li>
+<li><p>Command Mode:: Allows you to edit the notebook as a whole and use keyboard shortcuts but not edit a cell’s content.</p></li>
+</ul>
+<p>You can toggle between these two by either pressing <kbd>ESC</kbd> and <kbd>Enter</kbd> or clicking outside a cell or inside it (you need to double click if it’s a Markdown cell). You can always tell which mode you’re on: the current cell will have a green border in <strong>Edit Mode</strong> and a blue border in <strong>Command Mode</strong>. Try it!</p>
+</section>
+<section id="other-important-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="other-important-considerations">Other Important Considerations</h2>
+<p>Your notebook is autosaved every 120 seconds. If you want to manually save it you can just press the “save version” button on the upper right corner.</p>
+<p>To know if your <em>kernel</em> (the Python engine executing your instructions behind the scenes) is computing or not, you can check the icon to the left of your cell. If the dot spinning, it means that the kernel is working. If not, it is idle.</p>
+<p>There are a couple of shortcuts you must know about which we use <strong>all</strong> the time (always in <strong>Command Mode</strong>). These are:</p>
+<ul>
+<li><kbd>Shift</kbd>+<kbd>Enter</kbd>: Run the code or markdown on a cell</li>
+<li><kbd>Up Arrow</kbd> / <kbd>Down Arrow</kbd>: Toggle across cells</li>
+<li><kbd>b</kbd>: Create new cell underneath this one</li>
+<li><kbd>0</kbd>+<kbd>0</kbd>: Reset Kernel</li>
+</ul>
+<p>You can find more shortcuts by typing <kbd>h</kbd> (for help).</p>
+<p>You may need to use shell commands, like <code>ls</code> or <code>cat</code> in a Jupyter Notebook environment. That is very easy to do: just type <code>!</code> before you shell command, like so:</p>
+<div id="65c1b756" class="cell" data-papermill="{&quot;duration&quot;:0.79428,&quot;end_time&quot;:&quot;2022-04-24T20:37:14.729911&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:13.935631&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>That’s it. This is all you need to know to use Jupyter Notebooks. That said, we have more tips and tricks below… There’s a lot you can do with notebooks – in fact, we published <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">a whole book</a> written entirely as notebooks!</p>
+</section>
+<section id="markdown-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-formatting">Markdown Formatting</h2>
+<section id="images" class="level3">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
+<p><img src="jupyter-notebook-101_files/figure-html/a6496ccb-d9b2-4a31-bd4e-3154776fb588-1-d255031c-c4f7-4f3d-87ed-dad71fd3178d.png" class="img-fluid" alt="image.png"> old”)</p>
+<p>Did you know that the Jupyter Notebook team won the highest honor for a software system, the ACM Software System Award?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="jupyter-notebook-101_files/figure-html/3fd6a957-1-e8fe737f-c301-41ec-a462-cf16cee3cbb7.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p>And did you know that you can add images to your notebook, like I did in the cell above? To do so, just copy your image on your computer, and paste it into a markdown cell. You’ll see something like this:</p>
+<pre><code>![image.png](attachment:e8fe737f-c301-41ec-a462-cf16cee3cbb7.png)</code></pre>
+<p>When you execute the cell, you’ll see the image appear.</p>
+</section>
+<section id="italics-bold-strikethrough-inline-blockquotes-and-links" class="level3">
+<h3 class="anchored" data-anchor-id="italics-bold-strikethrough-inline-blockquotes-and-links">Italics, Bold, Strikethrough, Inline, Blockquotes and Links</h3>
+<p>The five most important concepts to format your code appropriately when using Markdown are:</p>
+<ul>
+<li><p><em>Italics</em>:: Surround your text with _ or *.</p></li>
+<li><p><strong>Bold</strong>:: Surround your text with __ or **.</p></li>
+<li><p><code>引用</code>:: Surround your text with `.</p></li>
+<li><p>blockquote:: Place &gt; before your text.</p></li>
+<li><p><a href="http://course-v3.fast.ai/">Links</a>:: Surround the text you want to link with [] and place the link adjacent to the text, surrounded with ().</p></li>
+</ul>
+</section>
+<section id="headings" class="level3">
+<h3 class="anchored" data-anchor-id="headings">Headings</h3>
+<p>Notice that including a hashtag before the text in a markdown cell makes the text a heading. The number of hashtags you include will determine the priority of the header (# is level one, ## is level two, ### is level three and #### is level four). We will add three new cells with the + button on the left to see how every level of heading looks.</p>
+<p>In the notebook, double click on some headings and find out what level they are!</p>
+</section>
+<section id="lists" class="level3">
+<h3 class="anchored" data-anchor-id="lists">Lists</h3>
+<p>There are three types of lists in markdown.</p>
+<p>Ordered list:</p>
+<ol type="1">
+<li>Step 1
+<ol start="2" type="1">
+<li>Step 1B</li>
+</ol></li>
+<li>Step 3</li>
+</ol>
+<p>Unordered list</p>
+<ul>
+<li>learning rate</li>
+<li>cycle length</li>
+<li>weight decay</li>
+</ul>
+<p>Task list</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Learn Jupyter Notebooks</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Writing</label></li>
+<li><label><input type="checkbox" checked="">Modes</label></li>
+<li><label><input type="checkbox" checked="">Other Considerations</label></li>
+</ul></li>
+<li><label><input type="checkbox">Change the world</label></li>
+</ul>
+<p>In the notebook, double click on them to see how they are built!</p>
+</section>
+</section>
+<section id="code-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="code-capabilities">Code Capabilities</h2>
+<p><strong>Code</strong> cells are different than <strong>Markdown</strong> cells in that they have an output cell. This means that we can <em>keep</em> the results of our code within the notebook and share them. Let’s say we want to show a graph that explains the result of an experiment. We can just run the necessary cells and save the notebook. The output will be there when we open it again! Try it out by running the next two cells.</p>
+<div id="677c051b" class="cell" data-papermill="{&quot;duration&quot;:0.049129,&quot;end_time&quot;:&quot;2022-04-24T20:37:15.884186&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:15.835057&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> c <span class="op">+</span> b <span class="op">+</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>a, b, c ,d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(1, 2, 4, 8)</code></pre>
+</div>
+</div>
+<div id="41ed7196" class="cell" data-papermill="{&quot;duration&quot;:0.276252,&quot;end_time&quot;:&quot;2022-04-24T20:37:16.198717&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:15.922465&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.plot([a,b,c,d])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="jupyter-notebook-101_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="running-jupyter-locally" class="level2">
+<h2 class="anchored" data-anchor-id="running-jupyter-locally">Running Jupyter Locally</h2>
+<p>This notebook is running inside Kaggle. You can also run notebooks inside other cloud environments such as <a href="https://colab.research.google.com">Colab</a>, <a href="https://studiolab.sagemaker.aws/">Sagemaker Studio Lab</a>, and <a href="https://gradient.run/notebooks">Paperspace Gradient</a>. Or you can run a Jupyter Notebook server from your local computer. What’s more, if you have installed Anaconda you don’t even need to install Jupyter (if not, just <code>pip install jupyter</code>).</p>
+<p>You just need to run <code>jupyter notebook</code> in your terminal. Remember to run it from a folder that contains all the folders/files you will want to access. You will be able to open, view, and edit files located within the directory in which you run this command but not files in parent directories.</p>
+<p>If a browser tab does not open automatically once you run the command, you should CTRL+CLICK the link starting with ‘http://localhost:’ and this will open a new tab in your default browser.</p>
+</section>
+<section id="shortcuts-and-tricks" class="level2">
+<h2 class="anchored" data-anchor-id="shortcuts-and-tricks">Shortcuts and Tricks</h2>
+<p>Here is a list of useful tricks when in a Jupyter Notebook. Make sure you learn them early and use them as often as you can!</p>
+<section id="command-mode-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="command-mode-shortcuts">Command Mode Shortcuts</h3>
+<p>There are a couple of useful keyboard shortcuts in <code>Command Mode</code> that you can leverage to make Jupyter Notebook faster to use. Remember that you can switch back and forth between <code>Command Mode</code> and <code>Edit Mode</code> with <kbd>Esc</kbd> and <kbd>Enter</kbd>.</p>
+<ul>
+<li>m:: Convert cell to Markdown</li>
+<li>y:: Convert cell to Code</li>
+<li>d+d:: Delete cell</li>
+<li>o:: Toggle between hide or show output</li>
+<li>Shift+Arrow up/Arrow down:: Select multiple cells. Once you have selected them you can operate on them like a batch (run, copy, paste etc).</li>
+<li>Shift+M:: Merge selected cells</li>
+</ul>
+</section>
+<section id="cell-tricks" class="level3">
+<h3 class="anchored" data-anchor-id="cell-tricks">Cell Tricks</h3>
+<p>There are also some tricks that you can code into a cell:</p>
+<ul>
+<li><code>?function-name</code>:: Shows the definition and docstring for that function</li>
+<li><code>??function-name</code>:: Shows the source code for that function</li>
+<li><code>doc(function-name)</code>:: Shows the definition, docstring <strong>and links to the documentation</strong> of the function (only works with fastai library imported)</li>
+<li>Shift+Tab (press once):: See which parameters to pass to a function</li>
+<li>Shift+Tab (press three times):: Get additional information on the method</li>
+</ul>
+<p>Here’s an example of using <code>?</code> to learn about Python’s <code>print()</code> function:</p>
+<div id="ff893396" class="cell" data-papermill="{&quot;duration&quot;:0.049622,&quot;end_time&quot;:&quot;2022-04-24T20:37:16.913163&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:16.863541&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?<span class="bu">print</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">Signature:</span> print<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">*</span>args<span class="ansi-yellow-fg ansi-bold">,</span> sep<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">' '</span><span class="ansi-yellow-fg ansi-bold">,</span> end<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">'\n'</span><span class="ansi-yellow-fg ansi-bold">,</span> file<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">None</span><span class="ansi-yellow-fg ansi-bold">,</span> flush<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">)</span>
+<span class="ansi-red-fg ansi-bold">Docstring:</span>
+Prints the values to a stream, or to sys.stdout by default.
+sep
+  string inserted between values, default a space.
+end
+  string appended after the last value, default a newline.
+file
+  a file-like object (stream); defaults to the current sys.stdout.
+flush
+  whether to forcibly flush the stream.
+<span class="ansi-red-fg ansi-bold">Type:</span>      builtin_function_or_method</pre>
+</div>
+</div>
+</div>
+<div id="0c7c6563-31ab-406b-bf4e-bbbb39b6873d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>??<span class="bu">print</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">Signature:</span> print<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">*</span>args<span class="ansi-yellow-fg ansi-bold">,</span> sep<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">' '</span><span class="ansi-yellow-fg ansi-bold">,</span> end<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-blue-fg ansi-bold">'\n'</span><span class="ansi-yellow-fg ansi-bold">,</span> file<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">None</span><span class="ansi-yellow-fg ansi-bold">,</span> flush<span class="ansi-yellow-fg ansi-bold">=</span><span class="ansi-green-fg ansi-bold">False</span><span class="ansi-yellow-fg ansi-bold">)</span>
+<span class="ansi-red-fg ansi-bold">Docstring:</span>
+Prints the values to a stream, or to sys.stdout by default.
+sep
+  string inserted between values, default a space.
+end
+  string appended after the last value, default a newline.
+file
+  a file-like object (stream); defaults to the current sys.stdout.
+flush
+  whether to forcibly flush the stream.
+<span class="ansi-red-fg ansi-bold">Type:</span>      builtin_function_or_method</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="line-magics" class="level3">
+<h3 class="anchored" data-anchor-id="line-magics">Line Magics</h3>
+<p>Line magics are functions that you can run on cells. They should be at the beginning of a line and take as an argument the rest of the line from where they are called. You call them by placing a ‘%’ sign before the command. The most useful ones are:</p>
+<ul>
+<li><code>%matplotlib inline</code>:: Ensures that all matplotlib plots will be plotted in the output cell within the notebook and will be kept in the notebook when saved.</li>
+</ul>
+<p>This command is always called together at the beginning of every notebook of the fast.ai course.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>%timeit</code>:: Runs a line ten thousand times and displays the average time it took to run.</li>
+</ul>
+<div id="720bb55a" class="cell" data-papermill="{&quot;duration&quot;:5.392573,&quot;end_time&quot;:&quot;2022-04-24T20:37:22.502821&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2022-04-24T20:37:17.110248&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>537 μs ± 34.2 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+</div>
+</div>
+<p><code>%debug</code>: Inspects a function which is showing an error using the <a href="https://docs.python.org/3/library/pdb.html">Python debugger</a>. If you type this in a cell just after an error, you will be directed to a console where you can inspect the values of all the variables.</p>
+</section>
+</section>
+<section id="thanks-for-reading" class="level2">
+<h2 class="anchored" data-anchor-id="thanks-for-reading">Thanks for reading!</h2>
+<p>If you found this notebook useful, I’d greatly appreciate an upvote (on my original notebook <a href="https://www.kaggle.com/code/jhoward/jupyter-notebook-101">here</a>, not on the copy you made of it!) Don’t hesitate to add a comment if you have any questions or thoughts to add, or have your own favorite Jupyter tips.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dolremi\.github\.io\/python101");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dolremi/python101/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -1,0 +1,622 @@
+[
+  {
+    "objectID": "dictionary.html",
+    "href": "dictionary.html",
+    "title": "字典Dictionary",
+    "section": "",
+    "text": "在Python中除了序列数据结构，字典作为一种键值对的映射数据结构，通过键(key)而不是数字索引来查找相关值。作为一种重要的数据结构，它是可变的并且无序的键值对集合。",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#创建",
+    "href": "dictionary.html#创建",
+    "title": "字典Dictionary",
+    "section": "创建",
+    "text": "创建\n使用花括号{}创建，键和值用冒号:分隔,不同项之间用逗号,分隔。\n\nempty_dict = {}\ncoffee_dict = {'瑞幸': 10, '星巴克': 15, 'manner': 30, 'M stand': 35}",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#键的特性",
+    "href": "dictionary.html#键的特性",
+    "title": "字典Dictionary",
+    "section": "键的特性",
+    "text": "键的特性\n在字典中，键除了唯一的以外，必须是不可变类型。键可以是任何不可变类型；字符串和数字总是可以作为键。 如果一个元组只包含字符串、数字或元组则也可以作为键；如果一个元组直接或间接地包含了任何可变对象，则 不能作为键 。 列表不能作为键，因为列表可以使用索引赋值、切片赋值或者append()和extend()等方法进行原地修改列表。",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#访问值",
+    "href": "dictionary.html#访问值",
+    "title": "字典Dictionary",
+    "section": "访问值",
+    "text": "访问值\n区别于序列数据结构，字典中的值是通过键作为索引访问的。\n\nprint(f\"瑞幸剩余库存是:{coffee_dict['瑞幸']}\")\n\n瑞幸剩余库存是:10",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#修改和添加",
+    "href": "dictionary.html#修改和添加",
+    "title": "字典Dictionary",
+    "section": "修改和添加",
+    "text": "修改和添加\n通过按照dict[key] = value的格式可以快速实现修改或者添加新的键值对。\n\ncoffee_dict['星巴克'] = 23\ncoffee_dict\n\n{'瑞幸': 10, '星巴克': 23, 'manner': 30, 'M stand': 35}\n\n\n\ncoffee_dict['Beets Coffee'] = 50\ncoffee_dict\n\n{'瑞幸': 10, '星巴克': 23, 'manner': 30, 'M stand': 35, 'Beets Coffee': 50}",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#删除",
+    "href": "dictionary.html#删除",
+    "title": "字典Dictionary",
+    "section": "删除",
+    "text": "删除\n\ndel coffee_dict['Beets Coffee']\n\n\ncoffee_dict_modified = coffee_dict.pop('manner')\n\n\ncoffee_dict_modified\n\n30\n\n\n\ncoffee_dict\n\n{'瑞幸': 10, '星巴克': 23, 'M stand': 35}",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#常用方法",
+    "href": "dictionary.html#常用方法",
+    "title": "字典Dictionary",
+    "section": "常用方法",
+    "text": "常用方法\n下面罗列一些常用方法\n\ncoffee_dict.keys()\n\ndict_keys(['瑞幸', '星巴克', 'M stand'])\n\n\n\ncoffee_dict.values()\n\ndict_values([10, 23, 35])\n\n\n\ncoffee_dict.items()\n\ndict_items([('瑞幸', 10), ('星巴克', 23), ('M stand', 35)])\n\n\n\ncoffee_dict.get('M stand')\n\n35\n\n\n\ncoffee_dict.update({'Beets Coffee': 24})\n\n\ncoffee_dict\n\n{'瑞幸': 10, '星巴克': 23, 'M stand': 35, 'Beets Coffee': 24}",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "dictionary.html#字典推导式",
+    "href": "dictionary.html#字典推导式",
+    "title": "字典Dictionary",
+    "section": "字典推导式",
+    "text": "字典推导式\n类似于列表推导式，字典也有自己方式快速建立字典\n\nsquares = {x: x**2 for x in range(5)}\n\n\nsquares\n\n{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n\n字典的查找、插入和删除操作都是十分高效的\n\n课后作业\n利用字典的功能设计一个简单的聊天机器人，可以将用户常用的对话用字典的形式保存起来，用户通过选择固定的问题得到机器人的回答。",
+    "crumbs": [
+      "字典Dictionary"
+    ]
+  },
+  {
+    "objectID": "exception_handler.html",
+    "href": "exception_handler.html",
+    "title": "异常处理",
+    "section": "",
+    "text": "在Python中，错误可以分为两种：语法错误 和 异常。其中语法错误是学习Python中常见的错误，如下例：\nif True print(\"Hello world\")\n\n\n  Cell In[1], line 1\n    if True print(\"Hello world\")\n            ^\nSyntaxError: invalid syntax\n语法错误是解析器解析时发现程序编写时的语法错误，作为程序员应该要极力避免的错误。这里我们主要讨论另一类错误，异常。",
+    "crumbs": [
+      "异常处理"
+    ]
+  },
+  {
+    "objectID": "exception_handler.html#什么是异常",
+    "href": "exception_handler.html#什么是异常",
+    "title": "异常处理",
+    "section": "什么是异常?",
+    "text": "什么是异常?\n异常是程序执行过程中发生的事件，通常会影响程序的正常执行。它们是Python对象，表示一个错误状态。当Python脚本发生异常时，如果不进行处理，程序将终止执行，并输出错误信息。",
+    "crumbs": [
+      "异常处理"
+    ]
+  },
+  {
+    "objectID": "exception_handler.html#异常处理机制",
+    "href": "exception_handler.html#异常处理机制",
+    "title": "异常处理",
+    "section": "异常处理机制",
+    "text": "异常处理机制\nPython的异常处理使用try、except、else和finally语句块来捕获和处理异常。\n\n基本语法\n\ntry:\n    # 可能引发异常的代码\nexcept ExceptionType:\n    # 处理特定异常\nelse:\n    # 如果没有异常发生时执行的代码\nfinally:\n    # 无论是否发生异常都会执行的代码\n\n\n  Cell In[2], line 3\n    except ExceptionType:\n    ^\nIndentationError: expected an indented block after 'try' statement on line 1\n\n\n\n\ntry：将可能引发异常的代码放在此块中。 except：捕获并处理特定类型的异常。 else：在没有发生任何异常时执行的代码块（可选）。 finally：无论是否发生异常，都会执行的代码块（通常用于清理资源）。\n\n注意与if区别看待，if条件判断一般用于场景\n\n\n\n捕获异常\n\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError as e:\n    print(f\"Error: {e}\")\nexcept Exception as e:\n    print(f\"Unexpected error: {e}\")\n\nError: division by zero",
+    "crumbs": [
+      "异常处理"
+    ]
+  },
+  {
+    "objectID": "exception_handler.html#抛出异常",
+    "href": "exception_handler.html#抛出异常",
+    "title": "异常处理",
+    "section": "抛出异常",
+    "text": "抛出异常\n可以使用raise语句手动抛出异常。这在满足特定条件时非常有用\n\ndef check_positive(value):\n    if value &lt; 0:\n        raise ValueError(\"Value must be non-negative.\")",
+    "crumbs": [
+      "异常处理"
+    ]
+  },
+  {
+    "objectID": "exception_handler.html#常见内置异常",
+    "href": "exception_handler.html#常见内置异常",
+    "title": "异常处理",
+    "section": "常见内置异常",
+    "text": "常见内置异常\nPython定义了多种内置异常类型，包括但不限于： * ValueError：传入无效参数。 * TypeError：操作或函数应用于不适当类型的对象。 * IndexError：序列中没有该索引。 * KeyError：字典中没有该键。 * FileNotFoundError：文件未找到。",
+    "crumbs": [
+      "异常处理"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html",
+    "href": "python-datatypes.html",
+    "title": "基本数据类型",
+    "section": "",
+    "text": "在计算机世界，数据需要通过0和1来表示。而Python作为一种我们与计算机的交流语言，提供了一个基本数据类型的工具箱，每个基本数据类型就是一个个工具。掌握了这些数据类型，你就可以通过编程了指挥计算机为你服务了!\n每种数据类型都有它的的特点和适用场景：\nPython的数据类型就像一个个特制的容器，每种特制容器都是为了存放特定类型的数据而设计。下面就让我们逐个了解每个容器吧:",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#整数-int",
+    "href": "python-datatypes.html#整数-int",
+    "title": "基本数据类型",
+    "section": "整数 (int)",
+    "text": "整数 (int)\n首先我们来看最熟悉的整数，在Python中我们可以用整数类型可以代表任何数学中的整数，这里注意Python中的整数是没有大小限制的哦。\n\nx = 2\ny = -56\nbig_num = 44823098509234\n\n我们在数学中学到的各类算数运算都可以直接使用在整数上。\n\n1+ 2 * 4 - 7\n\n2\n\n\n\n\n\n\n\n\nImportant\n\n\n\nPython中整数可以无限大，其内部采用一种变长数组的存储方式，将一个大整数分割成了一个个数字块.\n\n\n\nprint(big_num)\n\n44823098509234",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#浮点数float",
+    "href": "python-datatypes.html#浮点数float",
+    "title": "基本数据类型",
+    "section": "浮点数(Float)",
+    "text": "浮点数(Float)\n当你需要的数字带有小数点，这时我们就需要浮点数(Float)这个专属容器了，例如下面这个例子：\n\npi = 3.1415926\n\n\n浮点数是怎么存储的呢?\n浮点数采用了IEEE754标准双精度标准，包含了三个关键部分。\n\n\n\n符号位(1位)\n指数位(11位)\n尾数位(52位)\n\n\n\n\n+/-\n2^指数\n1. xxxxx\n\n\n\n让我们通过一个形象的比喻来理解：\n\n符号位就像一个正负号开关（+ 或 -）\n指数位就像是科学计数法中的”10的多少次方”\n尾数位就像是具体的数字部分\n\n\nimport struct\nimport binascii\n\ndef float_to_binary(num):\n    # 将浮点数打包成二进制\n    packed = struct.pack('!d', num)\n    # 转换成十六进制查看\n    hex_str = binascii.hexlify(packed).decode('utf-8')\n    # 转换成二进制字符串\n    binary = bin(int(hex_str, 16))[2:].zfill(64)\n    return binary\n\n# 查看3.14的二进制表示\nbinary = float_to_binary(3.14)\nprint(f\"符号位: {binary[0]}\")\nprint(f\"指数位: {binary[1:12]}\")\nprint(f\"尾数位: {binary[12:]}\")\n\n符号位: 0\n指数位: 10000000000\n尾数位: 1001000111101011100001010001111010111000010100011111\n\n\n以上就是通过数字3.14作为例子展示浮点数的存储结构。\n我们再来看看浮点数里面的一些特殊值吧\n\ninf = float('inf')\nprint(f\"正无穷大是：{inf}\")\nninf = float('-inf')\nprint(f\"负无穷大是：{ninf}\")\nnan = float('nan') \nprint(f\"非数字是：{nan}\")\n\n正无穷大是：inf\n负无穷大是：-inf\n非数字是：nan\n\n\n\n\n\n\n\n\nWarning\n\n\n\n使用浮点数时候要特别小心精度问题。\n\n\n\nresult = 0.1 + 0.2\n\n# 打印结果\nprint(f\"0.1 + 0.2 = {result}\")\n\n# 检查是否等于0.3\nprint(f\"结果是否等于0.3：{result == 0.3}\")\n\n# 查看更多小数位\nprint(f\"结果的更多小数位：{result:.17f}\")\n\n0.1 + 0.2 = 0.30000000000000004\n结果是否等于0.3：False\n结果的更多小数位：0.30000000000000004\n\n\n\nx = 0.1 + 0.2\ny = 0.3\ndef is_close(a, b, rel_tol=1e-9):\n    return abs(a-b) &lt;= rel_tol * max(abs(a), abs(b))\n\nprint(is_close(x, y))\n\nTrue\n\n\n采用近似比较来解决上面的精度问题。\n\nprice = 0.1\ntotal = price * 3\nprint(total)\n\n0.30000000000000004\n\n\n上面这个精度问题，可以采用Decimal来解决。\n\nfrom decimal import Decimal\nprice = Decimal('0.1')\ntotal = price * 3\nprint(total)\n\n0.3",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#布尔值bool",
+    "href": "python-datatypes.html#布尔值bool",
+    "title": "基本数据类型",
+    "section": "布尔值(bool)",
+    "text": "布尔值(bool)\n作为最简单的数据类型，只有True和False两种状态。 * 只有两个可能的值：True 和 False * 用于逻辑运算和控制流 * 实际上是 int 的子类，True 等同于 1，False 等同于 0\n\nis_python_fun = True\nis_coding_hard = False\n\n\nprint(type(True))   # 输出: &lt;class 'bool'&gt;\nprint(type(False))  # 输出: &lt;class 'bool'&gt;\n\n&lt;class 'bool'&gt;\n&lt;class 'bool'&gt;\n\n\n实际上布尔值是int的子类，True等同于1, False等同于0.\n\nprint(f\"布尔值是整型的子类吗？ {issubclass(bool, int)}\")\n\n布尔值是整型的子类吗？ True\n\n\n\nprint(True + 0)   \nprint(False + 0)  \nprint(True - False)  \nprint(False * 2)\n\n1\n0\n1\n0",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#复数complex",
+    "href": "python-datatypes.html#复数complex",
+    "title": "基本数据类型",
+    "section": "复数(Complex)",
+    "text": "复数(Complex)\nPython对复数的支持非常优雅，就像是给了每个数字一个”虚数小伙伴”！我们看看他们是怎么建立的吧。\n\nz1 = 3 + 4j\nz2 = complex(3, 4)\n\n\nprint(z1)\n\n(3+4j)\n\n\n\nprint(z2)\n\n(3+4j)\n\n\n\nc = 3 + 1j\nprint(c)\n\n(3+1j)\n\n\n\n\n\n\n\n\nCaution\n\n\n\n注意3+j 在Python中必须用3+1j表示\n\n\n\nz1 = 1 + 2j\nz2 = 3 + 4j\n\nprint(z1 + z2)    \nprint(z1 * z2)    \nprint(z1 / z2)    \nprint(z1 ** 2)\n\n(4+6j)\n(-5+10j)\n(0.44+0.08j)\n(-3+4j)",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#nonetype",
+    "href": "python-datatypes.html#nonetype",
+    "title": "基本数据类型",
+    "section": "NoneType",
+    "text": "NoneType\nNone就像是Python世界的”虚无”，它表示”什么都没有”或”不存在”。\n\nresult = None\n\n可以用于函数的默认返回值\n\ndef say_hello():\n    print(\"Hello!\")\n\nresult = say_hello()\nprint(say_hello())\n\nHello!\nHello!\nNone\n\n\n或者用于初始化。\n\nuser_input = None\ndata_from_api = None\n\n\n\n\n\n\n\nCaution\n\n\n\n注意None有些场景特别容易出错。\n\n\n\nprint(f\"None是False吗？{bool(None)}\")\n\nNone是False吗？False\n\n\n\nprint(f\"None == False? {None == False}\")\n\nNone == False? False\n\n\n\nprint(f\"None is False? {None is False}\")\n\nNone is False? False\n\n\n\nif None:\n    print(\"这不会执行\")\n\n\nempty_list = []\nprint(empty_list is None)\n\nFalse",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "python-datatypes.html#字符串str",
+    "href": "python-datatypes.html#字符串str",
+    "title": "基本数据类型",
+    "section": "字符串(str)",
+    "text": "字符串(str)\n字符串作为Python中文本处理的基本数据格式，就像一个装文字的口袋，可以装下任何文字内容并且拥有丰富的操作方法。字符串是不可变数据，因此每次操作都会形成新的字符串。\n\nhello = \"hello\"\nworld = \"world\"\ncombined = hello + \" \" + world\nprint(f\"{hello}的id是{id(hello)}\")\nprint(f\"{world}的id是{id(world)}\")\nprint(f\"{combined}的id是{id(combined)}\")\n\nhello的id是4386131184\nworld的id是4397209200\nhello world的id是4397211248\n\n\n\nmulti = ''' 多行 输入\n 的方法\n 测试'''\n\n\nhello_space = hello + \" \"\nprint(f\"{hello_space}的id是{id(hello_space)}\")\n\nhello 的id是4397206896\n\n\n\n字符串合并\n\nintroduce = \"indroduce\" + \" me\"\nprint(introduce)\n\nindroduce me\n\n\n\ntest = [\"Hello\", \"World\",\"c++\", \"PYTHON\"]\nsentence = \", \".join(test)\nprint(sentence)\n\nHello, World, c++, PYTHON\n\n\n\n\n重复字符串\n\nrepeat = \"Na\" * 6 + \" Batman!\" * 7\nprint(repeat)\n\nNaNaNaNaNaNa Batman! Batman! Batman! Batman! Batman! Batman! Batman!\n\n\n\n\n索引与切片\n切片的基本语法是:sequence[start:stop:step]\n\ntext = \"Python\" \nprint(text[0]) \nprint(text[1:4])  \nprint(text[::-1])\n\nP\nyth\nnohtyP\n\n\n\ngreeting = \"Hello\"\ntry:\n    greeting[0] = 'h'\nexcept TypeError as e:\n    print(f\"Error: {e}\")\n\nError: 'str' object does not support item assignment\n\n\n\n\n查找与切换\n\nsentence = \"你好，这是Python课程。\"\nprint(sentence.find(\"是\")) \nnew_sentence = sentence.replace(\"你\", \"您\")\nprint(new_sentence)  \nprint(sentence)\n\n4\n您好，这是Python课程。\n你好，这是Python课程。\n\n\n\n\n字符串分割\n\ntxt = \"we have apple banana and cherry.\"\nfruits = txt.split(\" \")\nprint(fruits) \nprint(f\"这里一共有{len(fruits)}个单词\")\n\n['we', 'have', 'apple', 'banana', 'and', 'cherry.']\n这里一共有6个单词\n\n\n\n\n大小写切换\n\ntext = \"Artificial Intelligent is fun\"\nprint(text.upper())      \nprint(text.lower())     \nprint(text.capitalize())\n\nARTIFICIAL INTELLIGENT IS FUN\nartificial intelligent is fun\nArtificial intelligent is fun\n\n\n\n\n去除空格\n\ntext = \"   Python   \"\nprint(text.strip())\n\nPython\n\n\n\n\n字符串检查\n\nprint(\"Python\".startswith(\"Py\"))  \nprint(\"Oth\".isdigit())\n\nTrue\nFalse\n\n\n\ntext = \"Hello, world\"\nprint(text.endswith(\"word\"))\n\nFalse\n\n\n\ntext = \"abc\"\nprint(text.isalpha())\n\nTrue\n\n\n\n\n字符串格式化\nPython的字符串格式化有这么几种：\n\n%符号\n\n\nname = \"Tom\"\nage = 22\nformatted = \"My name is %s and I am %d years old.\" %(name, age)\nprint(formatted)\n\nMy name is Tom and I am 22 years old.\n\n\n\nformat()方法\n\n\n# 使用 format() 方法\nname = \"Alice\"\nage = 30\nprint(\"My name is {} and I'm {} years old\".format(name, age))\n\nMy name is Alice and I'm 30 years old\n\n\n\nf-strings由Python 3.6引入的最便捷的字符串格式方法\n\n\nname = \"Judy\"\nage = 40\ncountry = \"USA\"\nprint(f\"My name is {name} and I'm {age} years old from {country}\")\n\nMy name is Judy and I'm 40 years old from USA\n\n\n\npi = 3.1415926\nprint(f\"Pi is {pi:.3f}\")\n\nPi is 3.142\n\n\n到此我们可以回顾一下Python的主要数据类型，如下表。\n\n\n\n数据类型\n描述\n是否可变\n示例\n\n\n\n\n整数 (int)\n表示整数\n否\n42, -10, 0\n\n\n浮点数 (float)\n表示小数\n否\n3.14, -0.001, 2.0e-3\n\n\n布尔 (bool)\n表示真或假\n否\nTrue, False\n\n\n字符串 (str)\n表示文本\n否\n\"Hello\", 'Python'\n\n\n复数 (complex)\n表示复数\n否\n3+4j, 2-1j\n\n\nNoneType\n表示空值\n不适用\nNone\n\n\n\n下面让我们开始设计我们的奶茶店”Python奶茶屋”,先看看这些基本数据类型能帮我们做些什么? 1. 订单备注 - 记录客人的各种特殊要求，就像给奶茶贴上的小纸条。 2. 账单系统 - 包括今日订单总数，今日应收，平均评分。 3. 检查状态 - 包括订单状态，是否放冰，是否放糖，是否线上订单。",
+    "crumbs": [
+      "基本数据类型"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "欢迎进入Python世界",
+    "section": "",
+    "text": "🎉 为什么选择 Python？\n\n新手友好 🐣 代码看起来就像是用英语写的！没有复杂的括号和分号，一眼就能读懂。\n全能王者 🏆 数据分析？做！机器学习？可以！Web开发？没问题！游戏开发？来吧！\n社区超级无敌 👥 全球数百万程序员随时在线，遇到问题秒级解决。\n薪资诱人 💰 Python 工程师平均年薪轻松破 30 万，顶级工程师更是突破 50 万！\n未来科技的语言 🚀 AI、大数据、区块链……哪个不是 Python 的主场？\n\n🌈 加入 Python 的世界，不仅仅是学习一门编程语言， 更是开启一段充满创造力和无限可能的奇妙旅程！ 准备好了吗？让我们一起用代码改变世界！🌍✨ 想来一段充满激情的编程启航吗？还是想先了解具体该如何开始这段旅程？\n\nimport this\n\nThe Zen of Python, by Tim Peters\n\nBeautiful is better than ugly.\nExplicit is better than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren't special enough to break the rules.\nAlthough practicality beats purity.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThere should be one-- and preferably only one --obvious way to do it.\nAlthough that way may not be obvious at first unless you're Dutch.\nNow is better than never.\nAlthough never is often better than *right* now.\nIf the implementation is hard to explain, it's a bad idea.\nIf the implementation is easy to explain, it may be a good idea.\nNamespaces are one honking great idea -- let's do more of those!\n\n\n上面是Python的设计哲学，简单来说就是：写代码时，别把事情搞复杂，保持清晰、简洁，错误要敢于面对，代码要让人看得懂。欢迎来到 Python 的世界，放心，大家都会陪着你一起成长的！🚀\n在探索Python世界的过程中，我们将使用Python一起搭建一个数字奶茶店.",
+    "crumbs": [
+      "欢迎进入Python世界"
+    ]
+  },
+  {
+    "objectID": "set.html",
+    "href": "set.html",
+    "title": "Set集合",
+    "section": "",
+    "text": "与序列数据结构不同的是,set 作为一种无序，可变的集合，其中的元素是唯一的，可以看作是数学中的集合概念：",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#创建",
+    "href": "set.html#创建",
+    "title": "Set集合",
+    "section": "创建",
+    "text": "创建\n使用花括号{}或者set()函数创建\n\nempty_set = set()\nmixed_set = (-34, 0.618, False, '列表创建', 5+5j)\ncoffee_set = set(['瑞幸', '星巴克', 'manner', 'M stand'])\n\n\n\n\n\n\n\nNote\n\n\n\n花括号{}创建的是空字典，不是空集合",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#添加元素",
+    "href": "set.html#添加元素",
+    "title": "Set集合",
+    "section": "添加元素",
+    "text": "添加元素\n\ncoffee_set.add('Beets coffee')\n\n\ncoffee_set\n\n{'Beets coffee', 'M stand', 'manner', '星巴克', '瑞幸'}\n\n\n\ncoffee_set.update(['雀巢','精品'])\n\n\ncoffee_set\n\n{'Beets coffee', 'M stand', 'manner', '星巴克', '瑞幸', '精品', '雀巢'}",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#删除元素",
+    "href": "set.html#删除元素",
+    "title": "Set集合",
+    "section": "删除元素",
+    "text": "删除元素\n\ncoffee_set.remove('精品')\n\n\ncoffee_set\n\n{'Beets coffee', 'M stand', 'manner', '星巴克', '瑞幸', '雀巢'}\n\n\n\ncoffee_set.pop()\n\n'瑞幸'\n\n\n\n在集合set里pop()函数是随机移除一个元素\n\n\ncoffee_set\n\n{'Beets coffee', 'M stand', 'manner', '星巴克', '雀巢'}",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#集合操作",
+    "href": "set.html#集合操作",
+    "title": "Set集合",
+    "section": "集合操作",
+    "text": "集合操作\n\nset1 = {1, 2, 3, 4}\nset2 = {3, 4, 5, 6}\nprint(set1 | set2)  \nprint(set1 & set2)  \nprint(set1 - set2)  \nprint(set1 ^ set2)\n\n{1, 2, 3, 4, 5, 6}\n{3, 4}\n{1, 2}\n{1, 2, 5, 6}",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#冻结集合",
+    "href": "set.html#冻结集合",
+    "title": "Set集合",
+    "section": "冻结集合",
+    "text": "冻结集合\nfrozenset是不可变版本的set.\n\nfrozen = frozenset([1, 2, 3])",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "set.html#性能",
+    "href": "set.html#性能",
+    "title": "Set集合",
+    "section": "性能",
+    "text": "性能\n集合的查找、添加和删除操作的平均时间复杂度为O(1),使其在处理唯一性和成员资格检查时非常高效。",
+    "crumbs": [
+      "Set集合"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html",
+    "href": "jupyter-notebook-101.html",
+    "title": "Writing",
+    "section": "",
+    "text": "# Jupyter Notebook使用方法\n1+2\n3-53456\nLet’s build up from the basics: what is a Jupyter Notebook? A notebook is a document made of cells. You can write in some of them (markdown cells) or you can perform calculations in Python (code cells) and run them like this:\n1+1\nCool, huh? This combination of prose and code makes Jupyter Notebook ideal for experimentation: we can see the rationale for each experiment, the code, and the results in one comprehensive document.\nTry it yourself now. Click “Copy & Edit” in the top right to get your own editable version of this notebook, then click the cell above and hit Shift-Enter.\nOther renowned institutions in academia and industry use Jupyter Notebook, including Google, Microsoft, IBM, Bloomberg, Berkeley and NASA among others. Even Nobel-winning economists use Jupyter Notebooks for their experiments and some suggest that Jupyter Notebooks will be the new format for research papers.\nA type of cell in which you can write text is called a Markdown cell. Markdown is a very popular markup language. To specify that a cell is Markdown you need to click in the drop-down menu in the toolbar and select Markdown.\nClick the ‘+ Markdown’ button below. Now you can type your first Markdown cell. Write ‘My first markdown cell’ and press run.\nYou should see something like this:\nMy first markdown cell\nNow try making your first Code cell: follow the same steps as before but click “+ Code”. Type something like 3/2. You should see ‘1.5’ as output.\n3/32",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#modes",
+    "href": "jupyter-notebook-101.html#modes",
+    "title": "Writing",
+    "section": "Modes",
+    "text": "Modes\nIf you made a mistake in your Markdown cell and you have already run it, you will notice that you cannot edit it just by clicking on it. This is because you are in Command Mode. Jupyter Notebooks have two distinct modes:\n\nEdit Mode:: Allows you to edit a cell’s content.\nCommand Mode:: Allows you to edit the notebook as a whole and use keyboard shortcuts but not edit a cell’s content.\n\nYou can toggle between these two by either pressing ESC and Enter or clicking outside a cell or inside it (you need to double click if it’s a Markdown cell). You can always tell which mode you’re on: the current cell will have a green border in Edit Mode and a blue border in Command Mode. Try it!",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#other-important-considerations",
+    "href": "jupyter-notebook-101.html#other-important-considerations",
+    "title": "Writing",
+    "section": "Other Important Considerations",
+    "text": "Other Important Considerations\nYour notebook is autosaved every 120 seconds. If you want to manually save it you can just press the “save version” button on the upper right corner.\nTo know if your kernel (the Python engine executing your instructions behind the scenes) is computing or not, you can check the icon to the left of your cell. If the dot spinning, it means that the kernel is working. If not, it is idle.\nThere are a couple of shortcuts you must know about which we use all the time (always in Command Mode). These are:\n\nShift+Enter: Run the code or markdown on a cell\nUp Arrow / Down Arrow: Toggle across cells\nb: Create new cell underneath this one\n0+0: Reset Kernel\n\nYou can find more shortcuts by typing h (for help).\nYou may need to use shell commands, like ls or cat in a Jupyter Notebook environment. That is very easy to do: just type ! before you shell command, like so:\n\n!pwd\n\nThat’s it. This is all you need to know to use Jupyter Notebooks. That said, we have more tips and tricks below… There’s a lot you can do with notebooks – in fact, we published a whole book written entirely as notebooks!",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#markdown-formatting",
+    "href": "jupyter-notebook-101.html#markdown-formatting",
+    "title": "Writing",
+    "section": "Markdown Formatting",
+    "text": "Markdown Formatting\n\nImages\n old”)\nDid you know that the Jupyter Notebook team won the highest honor for a software system, the ACM Software System Award?\n\n\n\nimage.png\n\n\nAnd did you know that you can add images to your notebook, like I did in the cell above? To do so, just copy your image on your computer, and paste it into a markdown cell. You’ll see something like this:\n![image.png](attachment:e8fe737f-c301-41ec-a462-cf16cee3cbb7.png)\nWhen you execute the cell, you’ll see the image appear.\n\n\nItalics, Bold, Strikethrough, Inline, Blockquotes and Links\nThe five most important concepts to format your code appropriately when using Markdown are:\n\nItalics:: Surround your text with _ or *.\nBold:: Surround your text with __ or **.\n引用:: Surround your text with `.\nblockquote:: Place &gt; before your text.\nLinks:: Surround the text you want to link with [] and place the link adjacent to the text, surrounded with ().\n\n\n\nHeadings\nNotice that including a hashtag before the text in a markdown cell makes the text a heading. The number of hashtags you include will determine the priority of the header (# is level one, ## is level two, ### is level three and #### is level four). We will add three new cells with the + button on the left to see how every level of heading looks.\nIn the notebook, double click on some headings and find out what level they are!\n\n\nLists\nThere are three types of lists in markdown.\nOrdered list:\n\nStep 1\n\nStep 1B\n\nStep 3\n\nUnordered list\n\nlearning rate\ncycle length\nweight decay\n\nTask list\n\nLearn Jupyter Notebooks\n\nWriting\nModes\nOther Considerations\n\nChange the world\n\nIn the notebook, double click on them to see how they are built!",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#code-capabilities",
+    "href": "jupyter-notebook-101.html#code-capabilities",
+    "title": "Writing",
+    "section": "Code Capabilities",
+    "text": "Code Capabilities\nCode cells are different than Markdown cells in that they have an output cell. This means that we can keep the results of our code within the notebook and share them. Let’s say we want to show a graph that explains the result of an experiment. We can just run the necessary cells and save the notebook. The output will be there when we open it again! Try it out by running the next two cells.\n\na = 1\nb = a + 1\nc = b + a + 1\nd = c + b + a + 1\na, b, c ,d\n\n(1, 2, 4, 8)\n\n\n\nimport matplotlib.pyplot as plt\n\nplt.plot([a,b,c,d])\nplt.show()",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#running-jupyter-locally",
+    "href": "jupyter-notebook-101.html#running-jupyter-locally",
+    "title": "Writing",
+    "section": "Running Jupyter Locally",
+    "text": "Running Jupyter Locally\nThis notebook is running inside Kaggle. You can also run notebooks inside other cloud environments such as Colab, Sagemaker Studio Lab, and Paperspace Gradient. Or you can run a Jupyter Notebook server from your local computer. What’s more, if you have installed Anaconda you don’t even need to install Jupyter (if not, just pip install jupyter).\nYou just need to run jupyter notebook in your terminal. Remember to run it from a folder that contains all the folders/files you will want to access. You will be able to open, view, and edit files located within the directory in which you run this command but not files in parent directories.\nIf a browser tab does not open automatically once you run the command, you should CTRL+CLICK the link starting with ‘http://localhost:’ and this will open a new tab in your default browser.",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#shortcuts-and-tricks",
+    "href": "jupyter-notebook-101.html#shortcuts-and-tricks",
+    "title": "Writing",
+    "section": "Shortcuts and Tricks",
+    "text": "Shortcuts and Tricks\nHere is a list of useful tricks when in a Jupyter Notebook. Make sure you learn them early and use them as often as you can!\n\nCommand Mode Shortcuts\nThere are a couple of useful keyboard shortcuts in Command Mode that you can leverage to make Jupyter Notebook faster to use. Remember that you can switch back and forth between Command Mode and Edit Mode with Esc and Enter.\n\nm:: Convert cell to Markdown\ny:: Convert cell to Code\nd+d:: Delete cell\no:: Toggle between hide or show output\nShift+Arrow up/Arrow down:: Select multiple cells. Once you have selected them you can operate on them like a batch (run, copy, paste etc).\nShift+M:: Merge selected cells\n\n\n\nCell Tricks\nThere are also some tricks that you can code into a cell:\n\n?function-name:: Shows the definition and docstring for that function\n??function-name:: Shows the source code for that function\ndoc(function-name):: Shows the definition, docstring and links to the documentation of the function (only works with fastai library imported)\nShift+Tab (press once):: See which parameters to pass to a function\nShift+Tab (press three times):: Get additional information on the method\n\nHere’s an example of using ? to learn about Python’s print() function:\n\n?print\n\n\nSignature: print(*args, sep=' ', end='\\n', file=None, flush=False)\nDocstring:\nPrints the values to a stream, or to sys.stdout by default.\nsep\n  string inserted between values, default a space.\nend\n  string appended after the last value, default a newline.\nfile\n  a file-like object (stream); defaults to the current sys.stdout.\nflush\n  whether to forcibly flush the stream.\nType:      builtin_function_or_method\n\n\n\n\n??print\n\n\nSignature: print(*args, sep=' ', end='\\n', file=None, flush=False)\nDocstring:\nPrints the values to a stream, or to sys.stdout by default.\nsep\n  string inserted between values, default a space.\nend\n  string appended after the last value, default a newline.\nfile\n  a file-like object (stream); defaults to the current sys.stdout.\nflush\n  whether to forcibly flush the stream.\nType:      builtin_function_or_method\n\n\n\n\n\nLine Magics\nLine magics are functions that you can run on cells. They should be at the beginning of a line and take as an argument the rest of the line from where they are called. You call them by placing a ‘%’ sign before the command. The most useful ones are:\n\n%matplotlib inline:: Ensures that all matplotlib plots will be plotted in the output cell within the notebook and will be kept in the notebook when saved.\n\nThis command is always called together at the beginning of every notebook of the fast.ai course.\n%matplotlib inline\n\n%timeit:: Runs a line ten thousand times and displays the average time it took to run.\n\n\n\n\n537 μs ± 34.2 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n\n\n%debug: Inspects a function which is showing an error using the Python debugger. If you type this in a cell just after an error, you will be directed to a console where you can inspect the values of all the variables.",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "jupyter-notebook-101.html#thanks-for-reading",
+    "href": "jupyter-notebook-101.html#thanks-for-reading",
+    "title": "Writing",
+    "section": "Thanks for reading!",
+    "text": "Thanks for reading!\nIf you found this notebook useful, I’d greatly appreciate an upvote (on my original notebook here, not on the copy you made of it!) Don’t hesitate to add a comment if you have any questions or thoughts to add, or have your own favorite Jupyter tips.",
+    "crumbs": [
+      "Writing"
+    ]
+  },
+  {
+    "objectID": "python-variables.html",
+    "href": "python-variables.html",
+    "title": "变量存储机制",
+    "section": "",
+    "text": "在变量是编程语言里重要的基本概念，在各类高级语言里都用变量来代表一块内存区域，某一时刻这块区域里存储了‘a’，又一时刻可能又被存储成了’c’， 正是由于该块内存里的值可以随时发生变化，我们称之这个代表内存区域的符号为变量。\n想象一下你有一个超级神奇的衣柜（内存空间）。这个衣柜很特别，不是用来放衣服的，而是用来存放各种各样的”值”。让我们来看看这个衣柜是怎么工作的：\n变量名就像衣柜的标签 🏷️\n\na = 12\n\n这里的a就像是在衣柜上贴了一个标签，告诉你”这格柜子里放着数字12”\n\nprint(a)\n\n12\n\n\n我们打印看看a的值，在这里Python在内存中创建了一个数12，并用a指向了它。\n\nb = \"Hello world\"\n\n\nprint(b)\n\nHello world\n\n\n字符串也是一样的道理。此时Python在内存中创建了一个字符串”Hello world”, 并用b指向了它。\n我们一起来看一个有趣的现象🎭\n\nx = 300\ny = 300\nprint(x is y)\n\nFalse\n\n\n\nsmall_x = 5\nsmall_y = 5\nprint(small_x is small_y)\n\nTrue\n\n\n咦？这是为什么呢？因为 Python 有个小机灵鬼行为：对于范围在-5到256之间的整数，Python 会提前在衣柜里准备好这些常用的数字，所以相同的小数字会指向同一个柜格！\n想要真正复制一个列表？🔄\n\noriginal = [1, 2, 3]\ncopy = original.copy()\n\n这就像是在衣柜里新开了一格，把原来的东西完完整整地复制了一份~\n\nprint(f'a的id是{id(a)}')\n\na的id是4368674248\n\n\n\nprint(f'b的id是{id(b)}')\n\nb的id是4441018352\n\n\nid()函数就像是查看衣柜格子的编号，让你知道变量到底指向哪里, 才找到每个对象所在的内存位置。\n\n?id\n\n\nSignature: id(obj, /)\nDocstring:\nReturn the identity of an object.\nThis is guaranteed to be unique among simultaneously existing objects.\n(CPython uses the object's memory address.)\nType:      builtin_function_or_method\n\n\n\n\na = 13\nprint(f\"a的id是{id(a)}\")\n\na的id是4368674280\n\n\n\n# 我们可以看看当执行a = b会发生什么\na = b\nprint(f'a的值是{a}, a的id值是{id(a)}')\nprint(f'b的值是{b}, b的id值是{id(b)}')\n\na的值是Hello world, a的id值是4441018352\nb的值是Hello world, b的id值是4441018352\n\n\n当执行a=b以后，a和b指向同一个地址。如图 \n\n不可变数据类型\n在Python中，不可变数据类型是指一旦创建就不能被修改的对象。让我们继续上面的例子重新给a赋值。\n\na = 10\nprint(f'a的值是{a}, a的id值是{id(a)}')\nprint(f'b的值是{b}, b的id值是{id(b)}')\n\na的值是10, a的id值是4368674184\nb的值是Hello world, b的id值是4441018352\n\n\n当执行完a=10以后, Python在内存中创建了一个整数10，并用a指向了它。b的值还有内存地址都不变。\n\nb = \"Python is fun\"\nprint(f'b的值是{b}, b的id值是{id(b)}')\n\nb的值是Python is fun, b的id值是4441199920\n\n\n\n\n可变数据类型\n我们来看如果修改可变数据类型，会发生什么。\n\nlist1 = [1, 2, 3]\nlist2 = list1\n\nprint(f\"list1: {list1}, list1的id: {id(list1)}\")\nprint(f\"list2: {list2}, list2的id: {id(list2)}\")\n\nlist1: [1, 2, 3], list1的id: 4441079552\nlist2: [1, 2, 3], list2的id: 4441079552\n\n\n\nlist1.append(4)\nprint(f\"修改后list1: {list1}, list1的id: {id(list1)}\")\nprint(f\"list2: {list2}, list2的id: {id(list2)}\")\n\n修改后list1: [1, 2, 3, 4], list1的id: 4441079552\nlist2: [1, 2, 3, 4], list2的id: 4441079552\n\n\n\n创建列表 list1 = [1, 2, 3] 时,Python在内存中创建了这个列表对象。\nlist2 = list1 使list2指向同一个列表对象。\n当我们修改list1时(如append),实际上是修改了它指向的对象。因为list2指向同一个对象,所以list2也会看到这个变化。\n\n\ndef modify_list(lst):\n    lst.append(5)\n\nmodify_list(list1)\nprint(f\"函数调用后list1: {list1}\")\nprint(f\"函数调用后list2: {list2}\")\n\n函数调用后list1: [1, 2, 3, 4, 5]\n函数调用后list2: [1, 2, 3, 4, 5]\n\n\n\n在Python中,函数参数是通过引用传递的。\n当我们将list1传给函数modify_list时,函数内的lst参数指向与list1相同的对象。\n因此,函数内对lst的修改会影响到list1和list2。\n\n\ndef create_object():\n    temp = \"这是一个临时对象\"\n    print(f\"临时对象的id: {id(temp)}\")\n\ncreate_object()\n\n临时对象的id: 4440948048\n\n\n\n在函数create_object中,我们创建了一个临时字符串对象。\n当函数结束后,这个对象不再被任何变量引用,Python的垃圾回收机制会在适当的时候将其删除,释放内存。",
+    "crumbs": [
+      "变量存储机制"
+    ]
+  },
+  {
+    "objectID": "functions.html",
+    "href": "functions.html",
+    "title": "函数",
+    "section": "",
+    "text": "在数学中，我们接触到了函数的概念，定义为一个集合A到集合B的映射。在编程语言中也有类似的概念，也是有输入参数到输出参数的机制。它有很多好处： * 代码重用，可以将代码逻辑封装成函数，可以在多个地方调用。 * 将复杂的操作分解成小的，易于理解的函数可以提高可读性。 * 提供了一种抽象机制，有助于简化问题。 * 促进了并发和异步编程 * 测试将更加方便\ndef fib(n):\n    \"\"\"打印小于n的斐波拉契数列.\"\"\"\n    a, b = 0, 1\n    while a &lt; n:\n        print(a, end=' ')\n        a, b = b, a+b\n    print()\n\nfib(200)\n以上就是一个典型的python函数，包括这么几个性质： * 定义函数：使用def关键字，后跟函数名和括号。 * 参数：函数可以接受参数，这些参数在括号内定义。 * 返回值：使用return语句返回函数的结果。 * 调用函数: 使用函数明加括号来调用函数。",
+    "crumbs": [
+      "函数"
+    ]
+  },
+  {
+    "objectID": "functions.html#参数类型",
+    "href": "functions.html#参数类型",
+    "title": "函数",
+    "section": "参数类型",
+    "text": "参数类型\nPython可以接受不同类型的参数： - 位置参数\n\ndef add(a, b):\n    return a + b\n\nresult = add(3, 5)\nprint(result)\n\n8\n\n\n\n关键字参数 通过关键字=对应的值这样的形式来传参。\n\n\ndef greet(name, greeting):\n    return f\"{greeting}, {name}!\"\n\nresult = greet(greeting=\"你好\", name=\"小明\") \nprint(result)\n\n你好, 小明!\n\n\n\n使用 *args这样的参数列表形式和**kwargs这样的关键字参数形式来代表可变数量的参数。\n\n\ndef sum_all(*args):\n    return sum(args)\n\nresult = sum_all(1, 2, 3, 4) \nprint(result)\n\n10\n\n\n\ndef print_info(**kwargs):\n    for key, value in kwargs.items():\n        print(f\"{key}: {value}\")\n\nprint_info(name=\"小明\", age=25, city=\"北京\")\n\nname: 小明\nage: 25\ncity: 北京\n\n\n\n默认参数 默认参数允许在定义函数时为参数指定参数值，并且默认参数必须放在非默认参数之后。\n\n\ndef greet(name, greeting=\"你好\"):\n    return f\"{greeting}, {name}\"\n\nresult1 = greet(\"小明\")\n\n\nprint(result1)\n\n你好, 小明\n\n\n\nresult2 = greet(\"小明\", \"早上好\")\nprint(result2)\n\n早上好, 小明\n\n\n默认参数只会计算一次，因此当默认值是可变对象时候要特别小心。\n\ndef f(a, L=[]):\n    L.append(a)\n    return L\n\nprint(f(1))\nprint(f(2))\nprint(f(3))\n\n[1]\n[1, 2]\n[1, 2, 3]\n\n\n可以看到默认值在多次调用函数中会共享，为了避免这一情况的发生，可以改变默认值：\n\ndef f(a, L=None):\n    if L is None:\n        L = []\n    L.append(a)\n    return L\n\n\n匿名函数(lambda) lambda函数是一种小型匿名函数，可以有任何数量的参数，但只能有一个表达式。\n\n\ndef square(x):\n    return x ** 2\n\nprint(square(4))\n\n16\n\n\n\nsquared_lambda = lambda x: x ** 2\nprint(squared_lambda(4))\n\n16\n\n\n\nnumbers = [1, 2, 3 ,4, 5]\nsquared_numbers = list(map(lambda x: x ** 2, numbers))\nprint(squared_numbers)\n\n[1, 4, 9, 16, 25]\n\n\n\npairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]\npairs.sort(key = lambda pair:pair[1])\nprint(pairs)\n\n[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]\n\n\n课后练习 :创建一个函数计算购物车的总价，包括折扣等。",
+    "crumbs": [
+      "函数"
+    ]
+  },
+  {
+    "objectID": "controls.html",
+    "href": "controls.html",
+    "title": "控制语句",
+    "section": "",
+    "text": "根据布尔变量的值作为判断形成了if语句的判断原型，可以从最简单的语句开始。\ntemp = 37.5\nif temp &gt;= 38:\n    print(\"你已经发烧了!\")\nelse:\n    print(\"你的体温正常\")\n    print(\"注意保持!\")\n\n你的体温正常\n注意保持!\n从上面的例子中，通过简单的if ... else ...语句判断temp是否高于38，打印相应的语句。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#多重条件",
+    "href": "controls.html#多重条件",
+    "title": "控制语句",
+    "section": "多重条件",
+    "text": "多重条件\n第一个例子中只有一个判断条件：即输入变量是否大于38。如果有多个判断条件，比如接着上面的例子通过温度再细分，可以用到elif去添加更多的判断条件。\n\ntemp = 38.5\nif temp &gt; 40:\n    print(\"哦！小心，这是高烧!\")\nelif temp &gt;= 38:\n    print(\"嗯！这是低烧。\")\nelif temp &gt;= 37:\n    print(\"测试\")\nelse:\n    print(\"你的体温正常\")\n\n嗯！这是低烧。\n\n\n课后练习: 设计一段程序，完成下面任务：根据用户输入的成绩，打印不同的成绩结果，其中大于90，打印A, 80-90; 打印B, 70-79, 打印C; 60-69,打印D;其余的打印F。 包括了input，if...elif的使用,还有输入格式必须是数字。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#match语句",
+    "href": "controls.html#match语句",
+    "title": "控制语句",
+    "section": "Match语句",
+    "text": "Match语句\nPython 3.10以后，引入Match语句，可以根据变量值来判断进入不同的分支。\n\nday = \"Sunday\"\nmatch day.lower():\n        case \"monday\" | \"tuesday\" | \"wednesday\" | \"thursday\" | \"friday\":\n            print(\"Weekday\")\n        case \"saturday\" | \"sunday\":\n            print(\"Weekend\")\n        case _:\n            print(\"Invalid day\")\n\nWeekend\n\n\n课后练习: 设计一个程序使用match语句， 根据不同的HTTP状态码来判断显示不同的提示语句，当状态码是404，显示”not found”; 当状态码是400，显示”bad request”;当状态码是500, 显示”Internal server error”;其他显示”Something wrong with the service”",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#逻辑条件判断",
+    "href": "controls.html#逻辑条件判断",
+    "title": "控制语句",
+    "section": "逻辑条件判断",
+    "text": "逻辑条件判断\n通过判断条件的组合，if语句可以完成多个变量的同时判断。\n\nage = 18\nsex = \"F\"\nif age &gt;= 18 and sex == \"F\":\n    print(\"成年女性\")\n\n成年女性",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#三元运算符",
+    "href": "controls.html#三元运算符",
+    "title": "控制语句",
+    "section": "三元运算符",
+    "text": "三元运算符\n简单的逻辑判断可以通过简单的三元运算符来实现。\n\nx = 3242389\n\"偶数\" if x % 2 == 0 else \"奇数\"\n\n'奇数'\n\n\n\nx\n\n3242389\n\n\n课后练习: 改造第一个例子，采用三元运算符判断温度是否超过38.",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#循环语句控制",
+    "href": "controls.html#循环语句控制",
+    "title": "控制语句",
+    "section": "循环语句控制",
+    "text": "循环语句控制\n当我们需要对于一系列的输入进行批量处理的时候，需要通过循环语句来控制，最常用的for循环和while循环。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#for循环",
+    "href": "controls.html#for循环",
+    "title": "控制语句",
+    "section": "for循环",
+    "text": "for循环\n一般for循环跟range函数配合使用，range(start, stop)函数会返回从start到stop范围内的一系列数字，当没有提供start值时，默认为0， 可以从以下函数解释中查找这个函数的详细解释。[1, 6)\n\n?range\n\n\nInit signature: range(self, /, *args, **kwargs)\nDocstring:     \nrange(stop) -&gt; range object\nrange(start, stop[, step]) -&gt; range object\nReturn an object that produces a sequence of integers from start (inclusive)\nto stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.\nstart defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.\nThese are exactly the valid indices for a list of 4 elements.\nWhen step is given, it specifies the increment (or decrement).\nType:           type\nSubclasses:     \n\n\n\n\nfor i in range(1, 6):\n    print( '*' * i)\n\n*\n**\n***\n****\n*****\n\n\n\n?enumerate\n\n\nInit signature: enumerate(iterable, start=0)\nDocstring:     \nReturn an enumerate object.\n  iterable\n    an object supporting iteration\nThe enumerate object yields pairs containing a count (from start, which\ndefaults to zero) and a value yielded by the iterable argument.\nenumerate is useful for obtaining an indexed list:\n    (0, seq[0]), (1, seq[1]), (2, seq[2]), ...\nType:           type\nSubclasses:     \n\n\n\n也可以通过枚举函数enumerate()来实现。\n\nfruits = ['苹果', '香蕉', '梨子']\nfor index, fruit in enumerate(fruits):\n    print(f\"{index}.{fruit}\")\n\n0.苹果\n1.香蕉\n2.梨子\n\n\n\nfruits[1]\n\n'香蕉'\n\n\n课后练习 ：利用for循环语句打印9*9乘法表。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#多重循环",
+    "href": "controls.html#多重循环",
+    "title": "控制语句",
+    "section": "多重循环",
+    "text": "多重循环\n在有些问题中，需要循环的嵌套来完成某些任务。\n\nfor i in range(1, 6):\n    for j in range(1, 6):\n        print(f\"{i}*{j} = {i*j} \", end=\"\")\n    print(\" \")\n\n1*1 = 1 1*2 = 2 1*3 = 3 1*4 = 4 1*5 = 5  \n2*1 = 2 2*2 = 4 2*3 = 6 2*4 = 8 2*5 = 10  \n3*1 = 3 3*2 = 6 3*3 = 9 3*4 = 12 3*5 = 15  \n4*1 = 4 4*2 = 8 4*3 = 12 4*4 = 16 4*5 = 20  \n5*1 = 5 5*2 = 10 5*3 = 15 5*4 = 20 5*5 = 25",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#break语句",
+    "href": "controls.html#break语句",
+    "title": "控制语句",
+    "section": "break语句",
+    "text": "break语句\n如果在循环中，遇到满足某些条件需要跳出整个循环，break语句就可以发挥作用了。它可以用于跳出最内层的循环。\n\nfor i in range(10):\n    if i == 5:\n        break\n    print(i)\n\n0\n1\n2\n3\n4\n\n\n在上面的循环中，原本是打印0到9的数字，但是if语句判断当前值是否是5，通过break推出当前循环，因此打印了从0到4的数字\n\nfor i in range(10):\n    for j in range(10):\n        if i + j &gt; 10:\n            break\n        print(f\"{i} + {j}\")\n\n0 + 0\n0 + 1\n0 + 2\n0 + 3\n0 + 4\n0 + 5\n0 + 6\n0 + 7\n0 + 8\n0 + 9\n1 + 0\n1 + 1\n1 + 2\n1 + 3\n1 + 4\n1 + 5\n1 + 6\n1 + 7\n1 + 8\n1 + 9\n2 + 0\n2 + 1\n2 + 2\n2 + 3\n2 + 4\n2 + 5\n2 + 6\n2 + 7\n2 + 8\n3 + 0\n3 + 1\n3 + 2\n3 + 3\n3 + 4\n3 + 5\n3 + 6\n3 + 7\n4 + 0\n4 + 1\n4 + 2\n4 + 3\n4 + 4\n4 + 5\n4 + 6\n5 + 0\n5 + 1\n5 + 2\n5 + 3\n5 + 4\n5 + 5\n6 + 0\n6 + 1\n6 + 2\n6 + 3\n6 + 4\n7 + 0\n7 + 1\n7 + 2\n7 + 3\n8 + 0\n8 + 1\n8 + 2\n9 + 0\n9 + 1",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#continue语句",
+    "href": "controls.html#continue语句",
+    "title": "控制语句",
+    "section": "continue语句",
+    "text": "continue语句\n如果在循环中，遇到满足某些条件需要跳出当前循环，采用continue语句可以当前目标。同样的，continue也是用于跳出最内层的循环。\n\nfor i in range(10):\n    if i == 5:\n        continue\n    print(i)\n\n0\n1\n2\n3\n4\n6\n7\n8\n9\n\n\n将前面例子中的break替换为continue，我们可以看到当i值为5时，跳过了打印的操作直接进入下一个循环。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#与else结合的循环语句",
+    "href": "controls.html#与else结合的循环语句",
+    "title": "控制语句",
+    "section": "与else结合的循环语句",
+    "text": "与else结合的循环语句\n在Python中，循环语句有一个特殊的else语句，当循环正常执行完以后会执行else语句。\n\nfor i in range(5):\n    print(i)\nelse:\n    print(\"循环正常结束。\")\n\n0\n1\n2\n3\n4\n循环正常结束。\n\n\n\nfor i in range(5):\n    if i == 3:\n        break\n    print(i)\nelse:\n    print(\"This won't be printed\")\n\n0\n1\n2\n\n\n将上个例子的break改成了continue，循环可以正常结束，else后的逻辑可以正常执行\n\nfor i in range(5):\n    if i == 3:\n        continue\n    print(i)\nelse:\n    print(\"This won't be printed\")\n\n0\n1\n2\n4\nThis won't be printed\n\n\n课后练习 :设计一个猜数字的游戏，一共可以猜五次，如果猜的数字比实际数字大则提示用户你猜的数字太大了，如果猜的数字比实际数字小则提示用户你猜的数字太小了，如果猜中了则游戏退出提示用户恭喜你猜对了。如果五次都没有猜中则打印游戏结束你没有猜对。",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "controls.html#while循环",
+    "href": "controls.html#while循环",
+    "title": "控制语句",
+    "section": "while循环",
+    "text": "while循环\n类似于for循环，while循环是另一种常见的循环控制语句。\n\nimport time\n\nseconds = 5\nwhile seconds &gt; 0:\n    print(seconds)\n    time.sleep(1)\n    seconds -= 1\nprint(\"时间到!\")\n\n5\n4\n3\n2\n1\n时间到!\n\n\n与for循环一样，while循环可以结合break和continue一起使用。\n\nnum = 0\nwhile True:\n    num += 1\n    if num % 3 == 0:\n        continue\n    if num &gt; 50:\n        break\n    print(num, end=\" \")\n\nprint(\"\\n结束操作\")\n\n1 2 4 5 7 8 10 11 13 14 16 17 19 20 22 23 25 26 28 29 31 32 34 35 37 38 40 41 43 44 46 47 49 50 \n结束操作",
+    "crumbs": [
+      "控制语句"
+    ]
+  },
+  {
+    "objectID": "sequence.html",
+    "href": "sequence.html",
+    "title": "序列型数据结构",
+    "section": "",
+    "text": "在Python中，序列使用整数索引进行高效的元素访问，包括字符串string, 列表list和元组tuple，其中字符串可以看作是字符的序列，list和tuple看作是任意Python 对象的序列。\n首先我们来回顾一下序列型数据结构的运算符跟数学运算符的区别吧。\nt1 = [1, 2, 4, 'a']\nt2 = [5, 6]\nprint(t1 + t2)\n\n[1, 2, 4, 'a', 5, 6]\n这里+号将两个list合并成一个list.\na = [10, 45, 53]\nb = 3 * [a]\nprint(b)\n\n[[10, 45, 53], [10, 45, 53], [10, 45, 53]]\n这里乘号*对原序列进行了复制。\na[2] = -49\nprint(b)\n\n[[10, 45, -49], [10, 45, -49], [10, 45, -49]]\n当然，我们可以通过创建新的列表来实现两个列表的同步。\na = [10, 45, 53]\nb = [list(a) for j in range(3)]\nprint(b)\n\na[2] = -49\nprint(b)\n\n[[10, 45, 53], [10, 45, 53], [10, 45, 53]]\n[[10, 45, 53], [10, 45, 53], [10, 45, 53]]\n作为序列数据结构的常用操作方式，解包可以应用到所有序列数据结构中。\nname = \"Micheal\"\na,b,c,d,e,f,g = name\nprint(b)\n\ni\n当需要比较两个序列数据结构时，它会从第一个元素开始比较每一个元素直到最后一个元素。对于字符串,采用字典序lexicographical order的规则来比较\na = [-3, -9, -18, -7, 5]\nprint(any([t &gt; 0 for t in a]))\n\nTrue\nprint(all([t &gt; 0 for t in a]))\n\nFalse\n内置的min和max函数只能用于可以排序的序列数据结构\na = [4.3, 8.9, 3.5, -12.3]\nprint(min(a))\nprint(b)\n\n-12.3\ni",
+    "crumbs": [
+      "序列型数据结构"
+    ]
+  },
+  {
+    "objectID": "sequence.html#list列表",
+    "href": "sequence.html#list列表",
+    "title": "序列型数据结构",
+    "section": "list列表",
+    "text": "list列表\n作为最常用的数据结构，是一个有序的，可变的序列，可以包含不同数据类型的元素。\n\n创建\n列表的创建可以通过中括号来创建\n\nempty_list = []\n\n\nmixed_list = [-34, 0.618, False, '列表创建', 5+5j]\n\n\ncoffee_list = ['瑞幸', '星巴克', 'manner', 'M stand']\n\n\n\n长度\n作为一种序列数据结构，可以通过len()函数获取列表长度。\n\nprint(f\"咖啡总数是{len(coffee_list)}种\")\n\n咖啡总数是4种\n\n\n\n\n访问元素\nlist作为一种序列数据结构，可以通过索引进行访问，索引依然是从\\(0\\)开始.\n\nprint(f\"第一个咖啡品牌{coffee_list[0]}\")\n\n第一个咖啡品牌瑞幸\n\n\n\nprint(f\"第二个咖啡品牌{coffee_list[1]}\")\n\n第二个咖啡品牌星巴克\n\n\n\n\n修改元素\n作为可变的数据结构，不同于字符串任何时候我们都可以改变列表的某一元素\n\ncoffee_list[2] = '精品咖啡'\ncoffee_list\n\n['瑞幸', '星巴克', '精品咖啡', 'M stand']\n\n\n\nid(coffee_list)\n\n4390838976\n\n\n可以看到上面的列表id 并没有发生变化\n\n\n常用操作\n下面罗列了列表的一些常用操作，大多数对列表本身进行了修改。\n\n在列表末尾添加元素\n\n\ncoffee_list.append('Peets coffee')\ncoffee_list\n\n['瑞幸', '星巴克', '精品咖啡', 'M stand', 'Peets coffee']\n\n\n\n将可迭代对象的所有元素添加到列表末尾\n\n\ncoffee_list.extend(['其他品牌', '咖啡豆'])\ncoffee_list\n\n['瑞幸', '星巴克', '精品咖啡', 'M stand', 'Peets coffee', '其他品牌', '咖啡豆']\n\n\n\n删除并返回指定位置的元素，默认最后一个\n\n\ncoffee_list.pop()\ncoffee_list\n\n['瑞幸', '星巴克', '精品咖啡', 'M stand', 'Peets coffee', '其他品牌']\n\n\n\n删除首次出现的指定元素\n\n\ncoffee_list.remove('M stand')\ncoffee_list\n\n['Peets coffee', '其他品牌', '星巴克', '瑞幸', '精品咖啡']\n\n\n\n对列表进行排序\n\n\ncoffee_list.sort()\ncoffee_list\n\n['M stand', 'Peets coffee', '其他品牌', '星巴克', '瑞幸', '精品咖啡']\n\n\n\n课后练习\n设计一个奶茶店的订单系统，使用前面介绍的list的基本操作,满足一下功能 - 当用户下单后，生成一个新订单进入订单列表中 - 订单完成后，需要从订单系统中删除 - 需要可以展示当前还有多少订单 - 所有的功能可以用函数表示\n\n\n\n队列推导式\n在列表数据结构中，有一个强大而简洁的特性，它允许我们以一种简洁的方式创建新的列表。 - 列表推导式通常比等效的for循环快，但是非常大的列表，可能会消耗大量内存 - 虽然列表推导式可以使代码更简洁，但过于复杂的推导式可能会降低可读性\n基本语法：new_list = [expression for item in iterable]\n\nsquares = [x**2 for x in range(10)]\nprint(squares)\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n带条件的列表推导式： new_list = [expression for item in iterable if condition]\n\neven_squares = [x**2 for x in range(10) if x % 2 == 0]\nprint(even_squares)\n\n[0, 4, 16, 36, 64]\n\n\n还可以结合函数运行\n\ndef is_even(n):\n    return n % 2 == 0\n\neven_numbers = [x for x in range(20) if is_even(x)]\nprint(even_numbers)\n\n[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]",
+    "crumbs": [
+      "序列型数据结构"
+    ]
+  },
+  {
+    "objectID": "sequence.html#tuple元组",
+    "href": "sequence.html#tuple元组",
+    "title": "序列型数据结构",
+    "section": "tuple(元组）",
+    "text": "tuple(元组）\n与list对应的是不可变序列类型就是tuple数据类型,可以作为以下用途: - 作为字典的键，因为字典的键值必须不可变 - 返回多个值的函数 - 在某些情况下可以提高性能\n\n创建\n使用圆括号()创建，元素之间用逗号分隔。\n\nempty_tuple = ()\nmixed_tuple = (-34, 0.618, False, '列表创建', 5+5j)\ncoffee_tuple = ('瑞幸', '星巴克', 'manner', 'M stand')\n\n\n\n不可变性\n\n\n\n\n\n\nNote\n\n\n\ntuple一旦创建不可以改变，这是它与list最大的区别。\n\n\n\ncoffee_tuple[2] = 'Peets coffee'\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[27], line 1\n----&gt; 1 coffee_tuple[2] = 'Peets coffee'\n\nTypeError: 'tuple' object does not support item assignment\n\n\n\n\n\n解包操作\n同样可以将tuple解包到多个变量。\n\ncoffee1, coffee2, coffee3, coffee4 = coffee_tuple\n\n\n\n常用方法\ntuple的方法只有两个: count和index\n\ncoffee_tuple.count('manner')\n\n1\n\n\n\ncoffee_tuple.index('manner')\n\n2\n\n\n\n课后练习\n结合列表和元组设计一个音乐播放列表，使用元组存储歌曲信息 - 设计一个函数返回当前歌曲列表，需要打印歌曲名称和歌手名称 - 设计一个函数返回列表中某一个歌曲序号下的歌曲名称，歌手名称，年代，歌曲流派信息 - 设计一个函数添加一个新的歌曲",
+    "crumbs": [
+      "序列型数据结构"
+    ]
+  },
+  {
+    "objectID": "python-programming.html",
+    "href": "python-programming.html",
+    "title": "写在最前面",
+    "section": "",
+    "text": "随着人工智能技术的不断发展，计算机科学已经成为当今世界发展最快的学科领域之一。那么当我们讨论计算机科学的时候，我们到底在说什么呢？\n你可能会问:“计算机科学,不就是整天对着电脑敲代码吗?”噢,那你就大错特错了!计算机科学就像是现代版的炼金术 - 我们用简单的0和1,创造出改变世界的魔法。它是艺术家的画笔,用代码勾勒出虚拟世界的轮廓;它是建筑师的图纸,搭建起互联网的摩天大楼;它更是魔术师的魔杖,让人工智能从科幻电影走进现实生活。\n在这个领域里,你可能早上在思考如何让计算机理解人类的语言,下午在设计一个能自动写诗的程序,晚上又在研究如何让自动驾驶汽车做出更安全的决策。每一行代码都可能是一次探索,每个算法都可能成为一次突破。\n如果说数学是自然界的语言,那么编程就是数字时代的魔法咒语。\n本质上说计算机科学就是将现实世界的问题数字化并通过编程来解决问题，而一个个数字化问题可以抽象为 输入-算法-输出 来表示。\n其中输入输出为现实中的事物在计算机中的数字化表示，算法就是通过一系列逻辑步骤将输入转化为输出完成一定的需求。我们先说说在计算机中输入输出的数据是怎么保存的吧。",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#计算机科学",
+    "href": "python-programming.html#计算机科学",
+    "title": "写在最前面",
+    "section": "",
+    "text": "随着人工智能技术的不断发展，计算机科学已经成为当今世界发展最快的学科领域之一。那么当我们讨论计算机科学的时候，我们到底在说什么呢？\n你可能会问:“计算机科学,不就是整天对着电脑敲代码吗?”噢,那你就大错特错了!计算机科学就像是现代版的炼金术 - 我们用简单的0和1,创造出改变世界的魔法。它是艺术家的画笔,用代码勾勒出虚拟世界的轮廓;它是建筑师的图纸,搭建起互联网的摩天大楼;它更是魔术师的魔杖,让人工智能从科幻电影走进现实生活。\n在这个领域里,你可能早上在思考如何让计算机理解人类的语言,下午在设计一个能自动写诗的程序,晚上又在研究如何让自动驾驶汽车做出更安全的决策。每一行代码都可能是一次探索,每个算法都可能成为一次突破。\n如果说数学是自然界的语言,那么编程就是数字时代的魔法咒语。\n本质上说计算机科学就是将现实世界的问题数字化并通过编程来解决问题，而一个个数字化问题可以抽象为 输入-算法-输出 来表示。\n其中输入输出为现实中的事物在计算机中的数字化表示，算法就是通过一系列逻辑步骤将输入转化为输出完成一定的需求。我们先说说在计算机中输入输出的数据是怎么保存的吧。",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#数字的二进制表示",
+    "href": "python-programming.html#数字的二进制表示",
+    "title": "写在最前面",
+    "section": "数字的二进制表示",
+    "text": "数字的二进制表示\n我们很早就知道所有信息在计算机中都是通过0和1来表示，因此在计算机的世界就是一个二进制的世界。首先看一下在计算机里，数字是怎么表示的。在实际生活中我们遇到的数字都是十进制的，它的基数是10，这意味着每当数字达到10时，就会向前一位进位。而在计算机眼里一切数字都应该是二进制的，它的基数变成了2,每当数字达到2就要向前进一位。那我们如何将一个实际生活中的数字转化成一个计算机世界的数字呢？\n\ndef decimal_to_binary(decimal_num):\n    if decimal_num == 0:\n        return \"0\"\n    \n    binary = \"\"\n    while decimal_num &gt; 0:\n        binary = str(decimal_num % 2) + binary\n        decimal_num //= 2\n    \n    return binary\n\n以上是一个简单的python小程序将一个十进制数字转化为一个二进制数。\n\n\n\nimage.png\n\n\n根据以上表格，我们测试一下我们写的这个小函数的功能，将一个十进制数转化为二进制数的表示。\n\nnumber = 35\nbinary_representation = decimal_to_binary(number)\nprint(f\"{number}转化为二进制表示是: {binary_representation}\")\n\n35转化为二进制表示是: 100011\n\n\nHooray！这里我们成功的将一个现实中的数字转化为一个二进制数了！",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#英文字母的表示方法-ascii码",
+    "href": "python-programming.html#英文字母的表示方法-ascii码",
+    "title": "写在最前面",
+    "section": "英文字母的表示方法 – ASCII码",
+    "text": "英文字母的表示方法 – ASCII码\n好了，有了数字，那么常见的英文字母呢？ 我们可不可以通过某种数字编码来表示，给每一个字母用一个独特的数字来代表呢?当然可以！人们发明了ASCII码来表示不同的英文字母，就是常说的编码方式将字母转化为数字，最终通过二进制来表示出来。在Python中，我们可以通过ord函数来得到某个字母的ASCII值。\n\nascii_number = ord('A')\nprint(f\"A的ASCII码是:{ascii_number}\")\n\nA的ASCII码是:65\n\n\n\nbinary_ascii = decimal_to_binary(ascii_number)\nprint(f\"A在计算机的二进制表示是：{binary_ascii}\")\n\nA在计算机的二进制表示是：1000001\n\n\n从上面的例子中可以看到字母A的ASCII码是65,转化为二进制的 1000001。",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#unicode码",
+    "href": "python-programming.html#unicode码",
+    "title": "写在最前面",
+    "section": "Unicode码",
+    "text": "Unicode码\n除了英文以外，其他国家的语言又是如何表示呢？人们又发明了Unicode码–一种16进制编码系统来表示国际语言。首先我们来看看中文是怎么表示的吧。\n\nunicode_number = hex(ord('中'))\nprint(f'中的unicode码是: {unicode_number}')\n\n中的unicode码是: 0x4e2d\n\n\n已知一个Unicode值，我们如何展示对应的符号呢？下面这个python函数实现了这个功能。\n\ndef unicode_string_to_char(unicode_string):\n    unicode_value = int(unicode_string.replace('0x', ''), 16)\n    return chr(unicode_value)\n\n除了国际语言，表情符号也是用Unicode码表示\n\nemoji_unicode = hex(ord('😂'))\nprint(f'😂的unicode码是：{emoji_unicode}')\n\n😂的unicode码是：0x1f602\n\n\n\nunicode_string_to_char('0x1f602')\n\n'😂'\n\n\n这里我们打印了😂这个今年最流行的表情图标以及对应的Unicode",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#图像",
+    "href": "python-programming.html#图像",
+    "title": "写在最前面",
+    "section": "图像",
+    "text": "图像\n我们上网浏览时候的照片，都是由一个个的像素组成的，每一个像素就是一个点，并且由一个或者多个数字表示其性质（颜色）\n下面这个例子，我们输出一个200 * 200大小的棋盘\n\nfrom PIL import Image\nimport numpy as np\n\n# 打印一个棋盘\nwidth, height = 200, 200\nimage = Image.new('RGB', (width, height))\npixels = image.load()\n\nsquare_size = 20\nfor x in range(width):\n    for y in range(height):\n        is_odd_square = ((x // square_size) + (y // square_size)) % 2\n        if is_odd_square:\n            pixels[x, y] = (255, 0, 0)  # Red square\n        else:\n            pixels[x, y] = (255, 255, 255)  # White square\n\ndisplay(image)\n\n\n\n\n\n\n\n\n我们可以将 30 * 30 像素的区域的颜色打印出来，其中W代表白色，\n\nprint(\"30x30区域的像素值:\")\nfor y in range(30):\n    for x in range(30):\n        print('R' if pixels[x,y] == (255,0,0) else 'W', end=' ')\n    print()\n\n30x30区域的像素值:\nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nW W W W W W W W W W W W W W W W W W W W R R R R R R R R R R \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W \nR R R R R R R R R R R R R R R R R R R R W W W W W W W W W W",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#rgb-值",
+    "href": "python-programming.html#rgb-值",
+    "title": "写在最前面",
+    "section": "RGB 值",
+    "text": "RGB 值\nRGB(红蓝绿)是一个用于表示颜色的模型，它将颜色表示为三个基本分量（或通道）的混合，即：红色、绿色和蓝色。 该模型使用三个数字（通常在0.0 到1.0 之间，或在0 到255 之间）来描述颜色，各数字代表了决定最终颜色的三种基本颜色的不同强度（或贡献）范围是0到255.\n\nfrom PIL import Image, ImageDraw\nimport matplotlib.pyplot as plt\n\ndef create_color_square(rgb_value, size=100):\n    img = Image.new('RGB', (size, size), color=rgb_value)\n    return img\n\ndef display_colors(colors):\n    fig, axs = plt.subplots(1, len(colors), figsize=(len(colors)*2, 2))\n    \n    for i, color in enumerate(colors):\n        img = create_color_square(color)\n        if len(colors) &gt; 1:\n            axs[i].imshow(img)\n            axs[i].axis('off')\n            axs[i].set_title(f'RGB {color}')\n        else:\n            axs.imshow(img)\n            axs.axis('off')\n            axs.set_title(f'RGB {color}')\n    \n    plt.tight_layout()\n    plt.show()\n\n上面这两个函数采用RGB模型来表示不同的颜色\n\nred = (255, 0, 0)\ngreen = (0, 255, 0)\nblue = (0, 0, 255)\nyellow = (255, 255, 0)\ncyan = (0, 255, 255)\nmagenta = (255, 0, 255)\n    \ndisplay_colors([red])\ndisplay_colors([green])\ndisplay_colors([blue])\n    \ndisplay_colors([yellow, cyan, magenta])\n    \ncustom_color = (128, 64, 32)\ndisplay_colors([custom_color])\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n从上面的例子中可以看到RGB模型来显示不同的颜色。",
+    "crumbs": [
+      "写在最前面"
+    ]
+  },
+  {
+    "objectID": "python-programming.html#算法",
+    "href": "python-programming.html#算法",
+    "title": "写在最前面",
+    "section": "算法",
+    "text": "算法\n我们介绍了各种不同的数据在计算机中的保存形式，接下来我们要介绍一下算法，作为编程的核心逻辑思想。\n\ndef bubble_sort(arr):\n    n = len(arr)\n    \n    for i in range(n):\n        # 判断是否更改过数字顺序\n        swapped = False\n        \n        # 保持最后i个元素的位置\n        for j in range(0, n-i-1):\n            # 遍历数组从 0 to n-i-1\n            # 如果当前元素大于下一个元素交换\n            if arr[j] &gt; arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n                swapped = True\n        \n        # 如果没有数字交换过顺序退出\n        if not swapped:\n            break\n    \n    return arr\n\n\nnumbers =  [64, 34, 25, 12, 22, 11, 90]\n\n\nprint(\"使用冒泡排序：\")\nnumbers_copy1 = numbers.copy()  \nsorted_numbers1 = bubble_sort(numbers_copy1)\nprint(sorted_numbers1)\n\n使用冒泡排序：\n[11, 12, 22, 25, 34, 64, 90]\n\n\n这个例子很好地展示了什么是算法：\n\n输入：都是同一个无序的数字列表 [64, 34, 25, 12, 22, 11, 90]\n过程：bubble_sort 使用了冒泡排序算法，通过不断比较和交换相邻元素来排序\n输出：都得到了相同的有序列表\n\n我们可以通过一个更直观的例子来看排序过程：\n\ndef visualize_sort(numbers):\n    \"\"\"\n    用简单的可视化方式展示数字大小\n    \"\"\"\n    for num in numbers:\n        # 用星号表示数字的大小\n        print('*' * num)\n\nprint(\"排序前的数据可视化：\")\nvisualize_sort(numbers)\n\nprint(\"\\n排序后的数据可视化：\")\nvisualize_sort(bubble_sort(numbers))\n\n排序前的数据可视化：\n****************************************************************\n**********************************\n*************************\n************\n**********************\n***********\n******************************************************************************************\n\n排序后的数据可视化：\n***********\n************\n**********************\n*************************\n**********************************\n****************************************************************\n******************************************************************************************",
+    "crumbs": [
+      "写在最前面"
+    ]
+  }
+]
