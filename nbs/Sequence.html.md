@@ -4,8 +4,12 @@ title: 序列型数据结构
 
 
 
-在Python中，[序列]((https://docs.python.org/zh-cn/3/glossary.html#term-sequence))使用整数索引进行高效的元素访问，包括字符串string, 列表list和元组tuple，其中字符串可以看作是字符的序列，list和tuple看作是任意Python 对象的序列。
 
+> Sequence数据结构
+- order: 7
+
+
+在Python中，[序列]((https://docs.python.org/zh-cn/3/glossary.html#term-sequence))使用整数索引进行高效的元素访问，包括字符串string, 列表list和元组tuple，其中字符串可以看作是字符的序列，list和tuple看作是任意Python 对象的序列。
 
 首先我们来回顾一下序列型数据结构的运算符跟数学运算符的区别吧。
 
